@@ -22,8 +22,13 @@ USER jovyan
 ENV JULIA_DEPOT_PATH=/opt/julia JULIA_PKGDIR=/opt/julia
 RUN chmod 1777 /opt/julia/logs
 
-# Add a package (and force compilation if not already done)
-RUN julia -e 'using Pkg; Pkg.add("HTTP"); Pkg.instantiate();'
+# Add packages (and force compilation if not already done)
+RUN julia -e 'using Pkg; Pkg.add("CSV"); Pkg.add("DataFrames"); \
+        Pkg.add("FileIO"); Pkg.add("GSEE"); Pkg.add("Gurobi"); \
+        Pkg.add("HiGHS"); Pkg.add("JuMP"); Pkg.add("Plots"); \
+        Pkg.add("PrettyTables"); Pkg.add("Random"); \
+        Pkg.add("Statistics"); Pkg.add("VegaLite"); \
+        Pkg.instantiate();'
 
 # Override command to disable running jupyter notebook at launch
 # CMD ["/bin/bash"]
