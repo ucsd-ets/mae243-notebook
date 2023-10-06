@@ -18,9 +18,12 @@ RUN apt-get -y install htop
 # 3) install packages using notebook user
 USER jovyan
 
-# RUN conda install -y scikit-learn
+# Configure default Julia package environment
+ENV JULIA_DEPOT_PATH=/opt/julia JULIA_PKGDIR=/opt/julia
+RUN chmod 1777 /opt/julia/logs
 
-RUN pip install --no-cache-dir networkx scipy
+# Add a package (and force compilation if not already done)
+RUN julia -e 'using Pkg; Pkg.add("HTTP"); Pkg.instantiate();'
 
 # Override command to disable running jupyter notebook at launch
 # CMD ["/bin/bash"]
