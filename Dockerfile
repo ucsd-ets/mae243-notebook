@@ -34,9 +34,9 @@ RUN julia -e 'using Pkg; Pkg.add("CSV"); Pkg.add("DataFrames"); \
         Pkg.add("PrettyTables"); Pkg.add("Random"); \
         Pkg.add("Statistics"); Pkg.add("VegaLite"); \
         Pkg.add("IJulia"); \
-        Pkg.instantiate(); \
-        using JuMP; \
-        using Plots;'
+        Pkg.instantiate();'
+#        using JuMP; \
+#        using Plots;'
         
 RUN chmod -R o+w /opt/julia
 
