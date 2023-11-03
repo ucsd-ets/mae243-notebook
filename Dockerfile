@@ -13,7 +13,8 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 # 2) change to root to install packages
 USER root
 
-RUN apt-get -y install htop openblas-dev openblas
+RUN apt-cache search openblas
+RUN apt-get -y install htop libopenblas-dev libopenblas
 
 # 3) install packages using notebook user
 USER jovyan
