@@ -34,6 +34,8 @@ RUN julia -e 'using Pkg; Pkg.add("CSV"); Pkg.add("DataFrames"); \
         Pkg.instantiate(); \
         using JuMP; \
         using Plots;'
+        
+RUN chmod -R o+w /opt/julia
 
 # Override command to disable running jupyter notebook at launch
 # CMD ["/bin/bash"]
