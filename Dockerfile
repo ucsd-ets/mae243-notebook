@@ -22,7 +22,7 @@ RUN apt-get upgrade && \
 USER jovyan
 
 # Configure default Julia package environment
-ENV JULIA_DEPOT_PATH=~/.julia:/opt/julia JULIA_PKGDIR=/opt/julia
+ENV JULIA_DEPOT_PATH=/opt/julia JULIA_PKGDIR=/opt/julia
 RUN chmod 1777 /opt/julia/logs
 
 # Add packages (and force compilation if not already done)
@@ -39,6 +39,7 @@ RUN julia -e 'using Pkg; Pkg.add("CSV"); Pkg.add("DataFrames"); \
 #        using Plots;'
         
 RUN chmod -R o+w /opt/julia
+ENV JULIA_DEPOT_PATH=~/.julia:/opt/julia
 
 # Override command to disable running jupyter notebook at launch
 # CMD ["/bin/bash"]
