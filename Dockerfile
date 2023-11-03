@@ -31,7 +31,10 @@ RUN julia -e 'using Pkg; Pkg.add("CSV"); Pkg.add("DataFrames"); \
         Pkg.add("PrettyTables"); Pkg.add("Random"); \
         Pkg.add("Statistics"); Pkg.add("VegaLite"); \
         Pkg.add("IJulia"); \
-        Pkg.instantiate();'
+        Pkg.instantiate(); 
+        using JuMP;
+        using Plots;
+        '
 
 # Override command to disable running jupyter notebook at launch
 # CMD ["/bin/bash"]
