@@ -5,7 +5,7 @@
 A new version of the image is built whenever the repository is updated. The tag of the build is the same as the branch. 
 
 ## How to create a release
-
+ 
 First, determine on the tag to use. It's recommended to use the current quarter. The tag would be "sp23" for spring 2023.
 
 Open the [Releases](../../releases) page and click the `Create a new release` button. Enter the tag in the "Choose a Tag" field and press enter to confirm. Then click "Publish Release" to create the tag.
