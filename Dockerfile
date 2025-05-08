@@ -4,6 +4,7 @@
 # base notebook, contains Jupyter and relevant tools
 # See https://github.com/ucsd-ets/datahub-docker-stack/wiki/Stable-Tag 
 # for a list of the most current containers we maintain
+
 ARG BASE_CONTAINER=ghcr.io/ucsd-ets/julia-notebook:main
 
 FROM $BASE_CONTAINER
@@ -24,6 +25,7 @@ USER jovyan
 # Configure default Julia package environment
 ENV JULIA_DEPOT_PATH=/opt/julia JULIA_PKGDIR=/opt/julia
 RUN chmod 1777 /opt/julia/logs
+# https://words.yuvi.in/post/pre-compiling-julia-docker/
 ENV JULIA_CPU_TARGET="generic;sandybridge,-xsaveopt,clone_all;haswell,-rdrnd,base(1)"
 # Add packages (and force compilation if not already done)
 # Note the line-continuation backslash ("\") at the end of each line so that
