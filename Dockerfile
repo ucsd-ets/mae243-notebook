@@ -35,7 +35,7 @@ RUN julia -e 'using Pkg; Pkg.add("CSV"); Pkg.add("DataFrames"); \
         Pkg.add("HiGHS"); Pkg.add("JuMP"); Pkg.add("Plots"); \
         Pkg.add("PrettyTables"); Pkg.add("Random"); \
         Pkg.add("Statistics"); Pkg.add("VegaLite"); \
-        Pkg.add("IJulia"); Pkg.add("CSV");
+        Pkg.add("IJulia"); Pkg.add("CSV"); \
         Pkg.precompile(); \
         Pkg.instantiate();'
 #        using JuMP; \
