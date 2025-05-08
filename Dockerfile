@@ -24,7 +24,7 @@ USER jovyan
 # Configure default Julia package environment
 ENV JULIA_DEPOT_PATH=/opt/julia JULIA_PKGDIR=/opt/julia
 RUN chmod 1777 /opt/julia/logs
-
+ENV JULIA_CPU_TARGET="generic;sandybridge,-xsaveopt,clone_all;haswell,-rdrnd,base(1)"
 # Add packages (and force compilation if not already done)
 # Note the line-continuation backslash ("\") at the end of each line so that
 # all packages are installed in one Julia invocation.
@@ -33,7 +33,8 @@ RUN julia -e 'using Pkg; Pkg.add("CSV"); Pkg.add("DataFrames"); \
         Pkg.add("HiGHS"); Pkg.add("JuMP"); Pkg.add("Plots"); \
         Pkg.add("PrettyTables"); Pkg.add("Random"); \
         Pkg.add("Statistics"); Pkg.add("VegaLite"); \
-        Pkg.add("IJulia"); Pkg.add("CSV"); \
+        Pkg.add("IJulia"); Pkg.add("CSV");
+        Pkg.precompile(); \
         Pkg.instantiate();'
 #        using JuMP; \
 #        using Plots;'
